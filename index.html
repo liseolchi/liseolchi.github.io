@@ -191,7 +191,6 @@
     <!-- 이미지 첨부 예시 -->
     <section class="bg-white p-6 rounded-xl shadow-lg mb-8">
       <h2 class="text-2xl font-semibold mb-2">3. 실험 사진 예시</h2>
-      <p class="mb-4 text-gray-600">사진은 <code>&lt;img src="경로" alt="설명"&gt;</code> 태그로 첨부합니다.</p>
       <img src="images/autoclave.jpg" alt="오토클레이브 장치" class="rounded-xl shadow-md w-full max-w-md mx-auto mb-4">
       <img src="images/lignin-sample.jpg" alt="추출된 리그닌 샘플" class="rounded-xl shadow-md w-full max-w-md mx-auto">
     </section>
@@ -206,13 +205,6 @@
         <input id="catalystAmount" type="number" placeholder="광촉매 양 (mg)" class="border p-2 rounded-md mr-2">
         <button onclick="calculateHydrogen()" class="bg-blue-600 text-white px-3 py-1 rounded">계산</button>
         <p id="hydrogenResult" class="mt-2 text-gray-700"></p>
-      </div>
-
-      <!-- 센서 시뮬레이터 -->
-      <div>
-        <h3 class="text-lg font-semibold text-green-700">센서 시뮬레이터</h3>
-        <button onclick="simulateSensor()" class="bg-green-600 text-white px-3 py-1 rounded">센서 작동</button>
-        <p id="sensorOutput" class="mt-2 text-gray-700"></p>
       </div>
     </section>
 
@@ -244,12 +236,6 @@
       const result = input * 0.002; // 예시: 1mg → 0.002mL
       document.getElementById("hydrogenResult").innerText =
         `예상 수소 생산량: 약 ${result.toFixed(3)} mL`;
-    }
-
-    function simulateSensor() {
-      const ppm = (Math.random() * 100 + 50).toFixed(2);
-      document.getElementById("sensorOutput").innerText =
-        `센서 감지 수소량: ${ppm} ppm`;
     }
   </script>
 </body>
