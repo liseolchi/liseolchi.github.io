@@ -18,7 +18,7 @@
       <h2 class="text-2xl font-semibold mb-6 border-b-2 pb-2">1. 이론적 배경</h2>
     
       <article class="border rounded-md p-4 mb-6 shadow-sm hover:shadow-md transition-shadow">
-        <h3 class="text-xl font-semibold mb-3 text-blue-700">[리그닌 (Lignin)]</h3>
+        <h3 class="text-xl font-semibold mb-3 text-blue-700">리그닌 (Lignin)</h3>
         <p class="leading-relaxed text-gray-700">
           리그닌은 목재를 구성하는 3대 고분자 성분 중 하나로, 셀룰로오스, 헤미셀룰로오스와 함께 식물 세포벽에 존재한다.
           방향족 고분자 구조를 가지고 있어 열적 안정성과 화학적 반응성이 우수하며, 광흡수 특성과 전자전달 능력을 통해
@@ -80,43 +80,111 @@
     </section>
 
     <!-- 실험 과정 (접기/펼치기 기능 포함) -->
-    <section class="bg-white p-6 rounded-xl shadow-lg mb-8">
-      <h2 class="text-2xl font-semibold mb-4">2. 실험 과정</h2>
-
-      <!-- 실험 항목 반복 -->
-      <div class="space-y-4">
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-10">
+      <h2 class="text-3xl font-bold mb-8 border-b-4 border-blue-600 pb-2">2. 실험 과정</h2>
+    
+      <div class="space-y-8">
+    
+        <!-- 추출 방법 1 -->
         <div>
-          <button onclick="toggleSection('extract1')" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg">추출 방법 1 보기</button>
-          <div id="extract1" class="toggle-content mt-2 p-4 border rounded-lg">
-            <ol class="list-decimal list-inside text-gray-700 space-y-1">
-              <li>폐목재를 분쇄해 ≤150μm로 만든다.</li>
-              <li>KOH 수용액과 혼합 후 오토클레이브(121℃, 3시간) 처리한다.</li>
-              <li>여과 후 HNO₃로 침전 → 원심분리 → 건조.</li>
+          <button onclick="toggleSection('extract1')" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-3 rounded-lg transition">
+            추출 방법 1 상세 보기
+          </button>
+          <div id="extract1" class="toggle-content mt-4 p-6 border-2 border-blue-300 rounded-xl bg-blue-50 hidden">
+            <h3 class="text-xl font-semibold mb-3 text-blue-700">추출 방법 1: 알칼리 처리법 (KOH)</h3>
+            <ol class="list-decimal list-inside text-gray-800 space-y-2">
+              <li>
+                <strong>폐목재 분쇄 및 준비:</strong>
+                실험에 사용할 폐목재를 150μm 이하로 미세하게 분쇄하여 표면적을 극대화한다. 이는 추출 효율을 높이기 위함이다.
+              </li>
+              <li>
+                <strong>KOH 수용액과 혼합 및 오토클레이브 처리:</strong>
+                분쇄된 폐목재와 2M KOH 수용액을 혼합한 뒤, 121℃에서 3시간 동안 오토클레이브 처리하여 리그닌을 분해 및 용출시킨다.
+              </li>
+              <li>
+                <strong>여과 및 침전 과정:</strong>
+                오토클레이브 처리 후 혼합물을 여과하여 고형물과 용액을 분리하고, 침전제로 HNO₃를 첨가해 리그닌을 침전시킨다.
+              </li>
+              <li>
+                <strong>원심분리 및 건조:</strong>
+                침전된 리그닌을 원심분리기로 분리한 후, 60℃에서 12시간 건조하여 순수 리그닌 분말을 얻는다.
+              </li>
+              <li>
+                <strong>추출물 분석:</strong>
+                최종 추출된 리그닌의 화학적 특성과 순도를 FTIR 및 UV-Vis 분광법을 통해 확인한다.
+              </li>
             </ol>
           </div>
         </div>
-
+    
+        <!-- 추출 방법 2 -->
         <div>
-          <button onclick="toggleSection('extract2')" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg">추출 방법 2 보기</button>
-          <div id="extract2" class="toggle-content mt-2 p-4 border rounded-lg">
-            <ol class="list-decimal list-inside text-gray-700 space-y-1">
-              <li>NaOH 용액과 톱밥 혼합 후 오토클레이브에서 반복 가열한다.</li>
-              <li>여과 및 원심분리 후 리그닌 회수.</li>
+          <button onclick="toggleSection('extract2')" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-3 rounded-lg transition">
+            추출 방법 2 상세 보기
+          </button>
+          <div id="extract2" class="toggle-content mt-4 p-6 border-2 border-blue-300 rounded-xl bg-blue-50 hidden">
+            <h3 class="text-xl font-semibold mb-3 text-blue-700">추출 방법 2: 반복 알칼리 열처리법 (NaOH)</h3>
+            <ol class="list-decimal list-inside text-gray-800 space-y-2">
+              <li>
+                <strong>톱밥과 NaOH 용액 혼합:</strong>
+                폐목재 톱밥을 1M NaOH 수용액과 혼합하여 리그닌 분해 반응을 준비한다.
+              </li>
+              <li>
+                <strong>오토클레이브 반복 가열:</strong>
+                혼합물을 오토클레이브에 넣어 120℃에서 2시간씩 3회 반복 가열, 리그닌 용출 극대화를 시도한다.
+              </li>
+              <li>
+                <strong>여과 및 원심분리:</strong>
+                각 반복 후 혼합물을 여과하여 불순물을 제거하고, 원심분리하여 리그닌 침전물을 회수한다.
+              </li>
+              <li>
+                <strong>리그닌 정제 및 건조:</strong>
+                회수한 리그닌 침전물을 에탄올로 세척 후 60℃에서 10시간 건조하여 고순도 리그닌을 확보한다.
+              </li>
+              <li>
+                <strong>수율 평가:</strong>
+                각 반복 단계별 리그닌 추출 수율을 중량 측정으로 확인하여 최적 가열 횟수를 분석한다.
+              </li>
             </ol>
           </div>
         </div>
-
+    
+        <!-- 광촉매 반응 -->
         <div>
-          <button onclick="toggleSection('photocatalyst')" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg">광촉매 과정 보기</button>
-          <div id="photocatalyst" class="toggle-content mt-2 p-4 border rounded-lg">
-            <ol class="list-decimal list-inside text-gray-700 space-y-1">
-              <li>리그닌 + TiO₂ 혼합 → 슬러리 생성.</li>
-              <li>UVA 조사(368nm, 2시간) 후 고체 회수 및 건조.</li>
-              <li>에탄올+메탄올+H₂O₂와 혼합 후 수소 생성량 측정.</li>
-              <li>아두이노 수소 센서로 수소량 데이터 기록.</li>
+          <button onclick="toggleSection('photocatalyst')" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-3 rounded-lg transition">
+            광촉매 과정 상세 보기
+          </button>
+          <div id="photocatalyst" class="toggle-content mt-4 p-6 border-2 border-green-300 rounded-xl bg-green-50 hidden">
+            <h3 class="text-xl font-semibold mb-3 text-green-700">광촉매 반응 과정</h3>
+            <ol class="list-decimal list-inside text-gray-800 space-y-2">
+              <li>
+                <strong>리그닌과 TiO₂ 혼합 및 슬러리 제조:</strong>
+                추출한 리그닌 분말과 TiO₂ 나노입자를 1:1 무게비로 혼합하여 슬러리 형태로 만든다.
+              </li>
+              <li>
+                <strong>UVA 광 조사:</strong>
+                파장 368nm의 UVA 램프 아래에서 2시간 동안 광조사를 진행하여 광촉매 활성화를 유도한다.
+              </li>
+              <li>
+                <strong>고체 회수 및 건조:</strong>
+                광조사 후 슬러리를 여과해 고체 광촉매를 회수하고, 50℃에서 8시간 건조한다.
+              </li>
+              <li>
+                <strong>수소 생산 실험:</strong>
+                건조된 광촉매를 에탄올, 메탄올, 과산화수소(H₂O₂)를 포함한 반응 용액에 넣고 광촉매 반응을 진행한다.
+              </li>
+              <li>
+                <strong>수소 측정:</strong>
+                아두이노에 연결한 수소 가스 센서를 사용해 시간에 따른 수소 생성량을 실시간으로 기록한다.
+              </li>
+              <li>
+                <strong>반복 실험 및 데이터 수집:</strong>
+                다양한 광조사 시간, 리그닌 농도, 반응 용액 조성에 따른 수소 생산량 변화를 다수 실험하여 데이터의 신뢰성을 확보한다.
+              </li>
             </ol>
           </div>
         </div>
+    
       </div>
     </section>
 
@@ -154,6 +222,17 @@
   </main>
 
   <!-- 자바스크립트 -->
+  <script>
+    function toggleSection(id) {
+      const el = document.getElementById(id);
+      if (el.style.display === "block") {
+        el.style.display = "none";
+      } else {
+        el.style.display = "block";
+      }
+    }
+  </script>
+  
   <script>
     function toggleSection(id) {
       const el = document.getElementById(id);
