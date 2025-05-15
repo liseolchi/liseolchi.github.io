@@ -1,81 +1,121 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>리그닌 기반 수소 생산 실험</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>리그닌 기반 광촉매 수소 생산 실험</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .toggle-content { display: none; }
+  </style>
 </head>
-<body>
-  <header>
-    <h1>🌱 리그닌 기반 광촉매 수소 생산 실험 🌞</h1>
-  </header>
-  
-  <main>
-    <section class="section theory">
-      <h2>1. 이론적 배경</h2>
-      <article>
-        <h3>리그닌 (Lignin)</h3>
-        <p>리그닌은 식물의 세포벽을 이루는 고분자 물질로, 방향족 구조 덕분에 광흡수 특성과 전자 전달 능력이 뛰어나다. 실험에서는 KOH 수용액으로 폐목재에서 추출하였다.</p>
-        <img src="img/lignin_structure.png" alt="리그닌 분자 구조" class="science-img">
-      </article>
-      <article>
-        <h3>광촉매</h3>
-        <p>빛에너지를 흡수하여 전자(e-)와 정공(h+)을 생성해 화학반응을 촉진하는 물질이다. 수소 생산에 적합하다.</p>
-        <img src="img/photocatalyst_diagram.jpg" alt="광촉매 작용 메커니즘" class="science-img">
-      </article>
-      <article>
-        <h3>TiO₂ (이산화티타늄)</h3>
-        <p>대표적인 광촉매 물질로, 자외선 영역의 빛을 흡수하여 반응을 유도한다. 아나타제 구조가 높은 효율을 보인다.</p>
-      </article>
-      <article>
-        <h3>THF (Tetrahydrofuran)</h3>
-        <p>무색 액체로, 리그닌 추출 실험에서 용매로 사용된다. 분자식: C₄H₈O</p>
-      </article>
-      <article>
-        <h3>아두이노 (Arduino)</h3>
-        <p>센서와 함께 사용하여 수소 농도를 실시간 측정하고 데이터화한다.</p>
-        <img src="img/arduino_h2_sensor.jpg" alt="아두이노 수소 센서 연결" class="science-img">
-      </article>
-      <article>
-        <h3>Python</h3>
-        <p>데이터 시각화 및 분석을 위해 matplotlib, pandas 등을 사용했다. 수소 농도와 실험 조건 간의 상관관계를 파악한다.</p>
-      </article>
-      <article>
-        <h3>머신러닝</h3>
-        <p>scikit-learn을 이용하여 조건에 따른 수소 생산량을 예측하는 모델을 훈련하였다. 최적 조건 도출에 활용되었다.</p>
-      </article>
+<body class="bg-gray-100 text-gray-800">
+  <main class="max-w-5xl mx-auto p-8">
+    <h1 class="text-4xl font-bold text-center text-blue-800 mb-6">리그닌 기반 광촉매 수소 생산 실험</h1>
+
+    <!-- 이론적 배경 -->
+    <section class="bg-white p-6 rounded-xl shadow-lg mb-8">
+      <h2 class="text-2xl font-semibold mb-2">1. 이론적 배경</h2>
+      <p class="text-gray-700 leading-relaxed">
+        리그닌은 목재에서 추출되는 고분자 유기물로, 풍부한 방향족 구조와 전자 전달 특성 덕분에 광촉매 반응에 사용될 수 있다.
+        이 실험에서는 폐목재에서 추출한 리그닌과 TiO₂ 나노입자를 결합하여 빛을 이용한 수소 생성 반응을 수행한다.
+        TiO₂는 자외선(UV) 하에서 전자-정공 쌍을 생성하고, 리그닌은 이 과정에서 전자 수용체 또는 광활성 첨가제로 작용한다.
+      </p>
     </section>
 
-    <section class="section experiment">
-      <h2>2. 실험 과정</h2>
-      <article>
-        <h3>리그닌 추출 - 방법 1</h3>
-        <ol>
-          <li>폐목재 건조·분쇄 (≤150μm)</li>
-          <li>KOH 수용액과 혼합 (1g:2g)</li>
-          <li>오토클레이브에서 3시간 반응</li>
-          <li>여과 후 HNO₃로 침전 → 원심분리 → 리그닌 수집</li>
-        </ol>
-        <img src="img/extract1.jpg" alt="리그닌 추출 과정 사진" class="science-img">
-      </article>
-      <article>
-        <h3>리그닌 추출 - 방법 2</h3>
-        <ol>
-          <li>10% NaOH 수용액 80ml 제조</li>
-          <li>500μm 이하의 톱밥 5g 계량</li>
-          <li>혼합하여 내열용기에서 가열</li>
-        </ol>
-      </article>
+    <!-- 실험 과정 (접기/펼치기 기능 포함) -->
+    <section class="bg-white p-6 rounded-xl shadow-lg mb-8">
+      <h2 class="text-2xl font-semibold mb-4">2. 실험 과정</h2>
+
+      <!-- 실험 항목 반복 -->
+      <div class="space-y-4">
+        <div>
+          <button onclick="toggleSection('extract1')" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg">추출 방법 1 보기</button>
+          <div id="extract1" class="toggle-content mt-2 p-4 border rounded-lg">
+            <ol class="list-decimal list-inside text-gray-700 space-y-1">
+              <li>폐목재를 분쇄해 ≤150μm로 만든다.</li>
+              <li>KOH 수용액과 혼합 후 오토클레이브(121℃, 3시간) 처리한다.</li>
+              <li>여과 후 HNO₃로 침전 → 원심분리 → 건조.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div>
+          <button onclick="toggleSection('extract2')" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg">추출 방법 2 보기</button>
+          <div id="extract2" class="toggle-content mt-2 p-4 border rounded-lg">
+            <ol class="list-decimal list-inside text-gray-700 space-y-1">
+              <li>NaOH 용액과 톱밥 혼합 후 오토클레이브에서 반복 가열한다.</li>
+              <li>여과 및 원심분리 후 리그닌 회수.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div>
+          <button onclick="toggleSection('photocatalyst')" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg">광촉매 과정 보기</button>
+          <div id="photocatalyst" class="toggle-content mt-2 p-4 border rounded-lg">
+            <ol class="list-decimal list-inside text-gray-700 space-y-1">
+              <li>리그닌 + TiO₂ 혼합 → 슬러리 생성.</li>
+              <li>UVA 조사(368nm, 2시간) 후 고체 회수 및 건조.</li>
+              <li>에탄올+메탄올+H₂O₂와 혼합 후 수소 생성량 측정.</li>
+              <li>아두이노 수소 센서로 수소량 데이터 기록.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <!-- 이미지 첨부 예시 -->
+    <section class="bg-white p-6 rounded-xl shadow-lg mb-8">
+      <h2 class="text-2xl font-semibold mb-2">3. 실험 사진 예시</h2>
+      <p class="mb-4 text-gray-600">사진은 <code>&lt;img src="경로" alt="설명"&gt;</code> 태그로 첨부합니다.</p>
+      <img src="images/autoclave.jpg" alt="오토클레이브 장치" class="rounded-xl shadow-md w-full max-w-md mx-auto mb-4">
+      <img src="images/lignin-sample.jpg" alt="추출된 리그닌 샘플" class="rounded-xl shadow-md w-full max-w-md mx-auto">
+    </section>
+
+    <!-- 실험 관련 JS 기능 -->
+    <section class="bg-white p-6 rounded-xl shadow-lg mb-8">
+      <h2 class="text-2xl font-semibold mb-4">4. 실험 도우미 기능 (JavaScript)</h2>
+
+      <!-- 수소 생성량 계산기 -->
+      <div class="mb-6">
+        <h3 class="text-lg font-semibold text-blue-700">수소 생성량 계산기</h3>
+        <input id="catalystAmount" type="number" placeholder="광촉매 양 (mg)" class="border p-2 rounded-md mr-2">
+        <button onclick="calculateHydrogen()" class="bg-blue-600 text-white px-3 py-1 rounded">계산</button>
+        <p id="hydrogenResult" class="mt-2 text-gray-700"></p>
+      </div>
+
+      <!-- 센서 시뮬레이터 -->
+      <div>
+        <h3 class="text-lg font-semibold text-green-700">센서 시뮬레이터</h3>
+        <button onclick="simulateSensor()" class="bg-green-600 text-white px-3 py-1 rounded">센서 작동</button>
+        <p id="sensorOutput" class="mt-2 text-gray-700"></p>
+      </div>
+    </section>
+
+    <footer class="text-center text-sm text-gray-500 mt-12">
+      ⓒ 2025 lignin-hydrogen-lab.github.io
+    </footer>
   </main>
 
-  <footer>
-    <p>© 2025 리그닌 광촉매 실험 프로젝트</p>
-  </footer>
-</body>
-</html>
-    <p>© 2025. 개발자 홍길동. All rights reserved.</p>
-  </footer>
+  <!-- 자바스크립트 -->
+  <script>
+    function toggleSection(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === "block" ? "none" : "block";
+    }
+
+    function calculateHydrogen() {
+      const input = document.getElementById("catalystAmount").value;
+      const result = input * 0.002; // 예시: 1mg → 0.002mL
+      document.getElementById("hydrogenResult").innerText =
+        `예상 수소 생산량: 약 ${result.toFixed(3)} mL`;
+    }
+
+    function simulateSensor() {
+      const ppm = (Math.random() * 100 + 50).toFixed(2);
+      document.getElementById("sensorOutput").innerText =
+        `센서 감지 수소량: ${ppm} ppm`;
+    }
+  </script>
 </body>
 </html>
