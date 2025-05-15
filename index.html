@@ -1,49 +1,80 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>프로젝트 보고서</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>리그닌 기반 수소 생산 실험</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>📄 프로젝트 보고서</h1>
-    <p>버전 1.0 | 2025년 5월 15일</p>
+    <h1>🌱 리그닌 기반 광촉매 수소 생산 실험 🌞</h1>
   </header>
-
-  <nav>
-    <ul>
-      <li><a href="#intro">소개</a></li>
-      <li><a href="#goal">목표</a></li>
-      <li><a href="#result">결과</a></li>
-      <li><a href="#conclusion">결론</a></li>
-    </ul>
-  </nav>
-
+  
   <main>
-    <section id="intro">
-      <h2>1. 프로젝트 소개</h2>
-      <p>이 프로젝트는 웹사이트를 깃허브를 통해 배포하는 과정을 담은 것이다.</p>
+    <section class="section theory">
+      <h2>1. 이론적 배경</h2>
+      <article>
+        <h3>리그닌 (Lignin)</h3>
+        <p>리그닌은 식물의 세포벽을 이루는 고분자 물질로, 방향족 구조 덕분에 광흡수 특성과 전자 전달 능력이 뛰어나다. 실험에서는 KOH 수용액으로 폐목재에서 추출하였다.</p>
+        <img src="img/lignin_structure.png" alt="리그닌 분자 구조" class="science-img">
+      </article>
+      <article>
+        <h3>광촉매</h3>
+        <p>빛에너지를 흡수하여 전자(e-)와 정공(h+)을 생성해 화학반응을 촉진하는 물질이다. 수소 생산에 적합하다.</p>
+        <img src="img/photocatalyst_diagram.jpg" alt="광촉매 작용 메커니즘" class="science-img">
+      </article>
+      <article>
+        <h3>TiO₂ (이산화티타늄)</h3>
+        <p>대표적인 광촉매 물질로, 자외선 영역의 빛을 흡수하여 반응을 유도한다. 아나타제 구조가 높은 효율을 보인다.</p>
+      </article>
+      <article>
+        <h3>THF (Tetrahydrofuran)</h3>
+        <p>무색 액체로, 리그닌 추출 실험에서 용매로 사용된다. 분자식: C₄H₈O</p>
+      </article>
+      <article>
+        <h3>아두이노 (Arduino)</h3>
+        <p>센서와 함께 사용하여 수소 농도를 실시간 측정하고 데이터화한다.</p>
+        <img src="img/arduino_h2_sensor.jpg" alt="아두이노 수소 센서 연결" class="science-img">
+      </article>
+      <article>
+        <h3>Python</h3>
+        <p>데이터 시각화 및 분석을 위해 matplotlib, pandas 등을 사용했다. 수소 농도와 실험 조건 간의 상관관계를 파악한다.</p>
+      </article>
+      <article>
+        <h3>머신러닝</h3>
+        <p>scikit-learn을 이용하여 조건에 따른 수소 생산량을 예측하는 모델을 훈련하였다. 최적 조건 도출에 활용되었다.</p>
+      </article>
     </section>
 
-    <section id="goal">
-      <h2>2. 개발 목표</h2>
-      <p>간단한 구조를 기반으로, 향후 확장 가능한 보고서형 웹사이트를 구현한다.</p>
-    </section>
-
-    <section id="result">
-      <h2>3. 결과물</h2>
-      <p>HTML, CSS로 구성된 정적인 웹페이지로 GitHub Pages를 통해 배포되었다.</p>
-    </section>
-
-    <section id="conclusion">
-      <h2>4. 결론 및 느낀점</h2>
-      <p>배포 과정이 생각보다 단순했으며, 디자인을 입히는 재미가 있었다.</p>
+    <section class="section experiment">
+      <h2>2. 실험 과정</h2>
+      <article>
+        <h3>리그닌 추출 - 방법 1</h3>
+        <ol>
+          <li>폐목재 건조·분쇄 (≤150μm)</li>
+          <li>KOH 수용액과 혼합 (1g:2g)</li>
+          <li>오토클레이브에서 3시간 반응</li>
+          <li>여과 후 HNO₃로 침전 → 원심분리 → 리그닌 수집</li>
+        </ol>
+        <img src="img/extract1.jpg" alt="리그닌 추출 과정 사진" class="science-img">
+      </article>
+      <article>
+        <h3>리그닌 추출 - 방법 2</h3>
+        <ol>
+          <li>10% NaOH 수용액 80ml 제조</li>
+          <li>500μm 이하의 톱밥 5g 계량</li>
+          <li>혼합하여 내열용기에서 가열</li>
+        </ol>
+      </article>
     </section>
   </main>
 
   <footer>
+    <p>© 2025 리그닌 광촉매 실험 프로젝트</p>
+  </footer>
+</body>
+</html>
     <p>© 2025. 개발자 홍길동. All rights reserved.</p>
   </footer>
 </body>
